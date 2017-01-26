@@ -1,0 +1,50 @@
+<header id="header">
+  <button class="leftButton" ui-sref="wishes-dashboard">
+    <span class="text">
+      <i class="icon-back highlightGradient"></i>
+    </span>
+  </button>
+  <h1>
+    My Wishes
+  </h1>
+  <button ui-sref="add-wish">
+    <span class="text">Add a Wish!</span>
+  </button>
+  <!--<button class="secondary disabled" ui-sref="add-wish">
+    <span class="text">Publish</span>
+  </button>-->
+</header>
+
+<main id="main">
+  <ul>
+    <li ng-repeat="wish in wishList.getWishes() track by $index" ng-if="!wish.received" ng-swipe-left="wishList.remove(wish)" swipe-effect ui-sref="edit-wish({ id: wish._id })">
+      <span class="text">{{wish.name}}</span>
+      <button class="received">
+        <img class="off" src="images/star.svg" />
+      </button>
+      <div class="delete">
+        <span class="text">Delete</span>
+      </div>
+    </li>
+  </ul>
+  <h3 ng-if="wishList.receivedWishes.length">Gifts received (Private)</h3>
+  <ul>
+    <li ng-repeat="wish in wishList.receivedWishes track by $index" ng-if="wish.received" ng-swipe-left="wishList.remove(wish)" swipe-effect ui-sref="edit-wish({ id: wish._id })">
+      <span class="text">{{wish.name}}</span>
+      <button class="received" ng-click="wishList.markAsNotReceived(wish); $event.stopPropagation()">
+        <img src="images/star.svg" />
+      </button>
+      <div class="delete">
+        <span class="text">Delete</span>
+      </div>
+    </li>
+  </ul>
+  <div ui-sref="settings" class="settingsButton">
+    <i class="icon-options"></i>
+  </div>
+</main>
+
+<script charset="utf-8">
+  var height = document.getElementById("header").offsetHeight;
+  document.getElementById("main").style.marginTop = height + 20 + 'px';
+</script>

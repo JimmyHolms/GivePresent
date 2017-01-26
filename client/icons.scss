@@ -1,0 +1,73 @@
+$icomoon-font-path: "fonts" !default;
+
+$icon-back: "\61";
+$icon-follow: "\65";
+$icon-forward: "\62";
+$icon-info: "\66";
+$icon-mail: "\63";
+$icon-moreOptions: "\67";
+$icon-options: "\64";
+$icon-profile: "\68";
+
+@font-face {
+  font-family: 'WishingIcons';
+  src:  url('fonts/WishingIcons.ttf?3w3z6z') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'WishingIcons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-back {
+  &:before {
+    content: $icon-back;
+  }
+}
+.icon-follow {
+  &:before {
+    content: $icon-follow;
+  }
+}
+.icon-forward {
+  &:before {
+    content: $icon-forward;
+  }
+}
+.icon-info {
+  &:before {
+    content: $icon-info;
+  }
+}
+.icon-mail {
+  &:before {
+    content: $icon-mail;
+  }
+}
+.icon-moreOptions {
+  &:before {
+    content: $icon-moreOptions;
+  }
+}
+.icon-options {
+  &:before {
+    content: $icon-options;
+  }
+}
+.icon-profile {
+  &:before {
+    content: $icon-profile;
+  }
+}

@@ -1,0 +1,37 @@
+<form name="signUp.form.signUp" novalidate="novalidate">
+  <div class="input-group">
+    <input id="name" name="name" type="text" placeholder="Full Name" ng-model="signUp.credentials.profile.name" required />
+  </div>
+
+  <div class="input-group">
+    <input id="email" name="email" type="email" placeholder="Email" ng-model="signUp.credentials.email" required />
+  </div>
+
+  <div class="input-group">
+    <input id="password" name="password" type="password" placeholder="Password" ng-model="signUp.credentials.password" required />
+  </div>
+
+  <!--<p class="input-group" ng-if="!signUp.uploadedImages">
+    <label for="picture">Select Profile Picture</label>
+    <!--<input id="picture" name="picture" type="file" placeholder="Select Picture" />
+    <party-upload files="signUp.uploadedImages" ng-model="signUp.uploadedImages" required></party-upload>
+  </p>-->
+
+  <!-- <p ng-if="signUp.uploadedImages && signUp.uploadedImages.length">
+    <img ng-src="{{signUp.uploadedImages[0]}}" class="image-preview">
+  </p> -->
+
+  <button class="signUp" ng-click="signUp.signUp()" ng-disabled="signUp.form.signUp.$invalid" ng-class="{ 'disabled': signUp.form.signUp.$invalid }">
+    <span class="text">Sign Up</span>
+  </button>
+</form>
+
+  <p class="agreeCopy">
+    By signing up, you agree to our<br />
+    <a>Terms</a> &amp; <a>Privacy Policy</a>.
+  </p>
+  <a class="alreadyHaveAccount" ui-sref="sign-in">
+    I already have an account <i class="icon-forward highlightGradient"></i>
+  </a>
+
+  <p ng-if="signUp.error">Sign Up Error: {{signUp.error.message}}</p>

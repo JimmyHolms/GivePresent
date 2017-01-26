@@ -1,0 +1,53 @@
+<header id="header">
+  <button class="leftButton" ui-sref="wishes-dashboard">
+    <span class="text">
+      <i class="icon-back highlightGradient"></i>
+    </span>
+  </button>
+  <button class="rightButton" ui-sref="wishes-dashboard">
+    <span class="text">
+      Done
+    </span>
+  </button>
+  <h1>
+    Options
+  </h1>
+</header>
+
+<main id="main">
+  <p ng-if="!settings.fbConnected" ng-click="settings.connectToFacebook()">Connect to facebook</p>
+  <h3 ng-if="settings.userRegistered">Accounts</h3>
+  <ul ng-if="settings.userRegistered" class="settings">
+    <li>
+      <span class="text"><a ui-sref="edit-profile">Edit Profile</a></span>
+    </li>
+    <li>
+      <span class="text"><a ui-sref="change-password">Change Password</a></span>
+    </li>
+  </ul>
+  <h3>Support</h3>
+  <ul class="settings">
+    <li>
+      <span class="text"><a ui-sref="privacy-policy">Privacy Policy</a></span>
+    </li>
+    <li>
+      <span class="text"><a ui-sref="terms">Terms</a></span>
+    </li>
+  </ul>
+  <h3 ng-if="settings.fbConnected">Facebook</h3>
+  <ul ng-if="settings.fbConnected" class="settings">
+    <li>
+      <span class="text"><a ng-click="settings.unlinkFacebook()">Unlink FB account</a></span>
+    </li>
+  </ul>
+  <ul class="settings" ng-if="settings.userRegistered">
+    <li>
+      <span class="text"><a ng-click="settings.singOut()">Log Out</a></span>
+    </li>
+  </ul>
+</main>
+
+<script charset="utf-8">
+  var height = document.getElementById("header").offsetHeight;
+  document.getElementById("main").style.marginTop = height + 20 + 'px';
+</script>

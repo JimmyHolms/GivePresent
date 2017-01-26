@@ -1,0 +1,59 @@
+<svg id="star.svg" xmlns="http://www.w3.org/2000/svg" width="156" height="150" viewBox="0 0 156 150">
+  <defs>
+    <radialGradient id="starGradient" gradientUnits="userSpaceOnUse" cx="90%" cy="45%" r="75%">
+      <stop stop-color="#fffcde" offset="0"/>
+      <stop stop-color="#ffd67e" offset="1"/>
+    </radialGradient>
+    <filter id="starEffects" width="1.5" height="1.5" x="-.25" y="-.25">
+      <!-- Drop Shadow -->
+      <feGaussianBlur in="SourceAlpha" stdDeviation="12" result="initialShadow"/>
+      <feColorMatrix result="blurShadow" type="matrix" values=
+              "1 0 0 0   0
+               0 1 0 0   0
+               0 0 1 0   0
+               0 0 0 .35 0 "/>
+      <feOffset in="blurShadow" dx="0" dy="6" result="finalShadow"/>
+
+      <!-- Stroke -->
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1.5" result="strokeBlur"/>
+      <feColorMatrix result="hardenStroke" type="matrix" values=
+              "1 0 0 0   0
+               0 1 0 0   0
+               0 0 1 0   0
+               0 0 0 50 0 "/>
+      <feColorMatrix result="finalStroke" type="matrix" values=
+             "1 0 0 0   0
+               0 1 0 0   0
+               0 0 1 0   0
+               0 0 0 0.1 0 "/>
+      <!-- Glow -->
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="initialGlow"/>
+      <feColorMatrix result="finalGlow" type="matrix" values=
+              "1 0 0 1   0
+               0 1 0 .65 0
+               0 0 1 0   0
+               0 0 0 1   0 "/>
+
+      <feMerge>
+        <feMergeNode in="finalShadow"/>
+        <feMergeNode in="finalStroke"/>
+        <feMergeNode in="finalGlow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      .eye-color {
+        fill-rule: evenodd;
+        fill: #252a4a;
+    </style>
+  </defs>
+  <g>
+    <path
+      id="Star"
+      style="filter:url(#starEffects)"
+      fill="url(#starGradient)"
+      d="M73.018,11.4c5.375,2.83,14.9,13.372,22.739,27.05,16.179,1.785,30.108,5.152,35.276,8.941-3.565,6.246-11.287,15.87-23.164,26.879,2.345,15.715,2.822,29.314,2.148,38.148a241.862,241.862,0,0,1-33.943-15.67A336.961,336.961,0,0,1,42.106,112.6c0.022-8.921,1.55-21.76,4.4-36.677-11.28-9.757-19.173-17.862-22.544-23.73,5.059-4.227,18.006-8.976,33.371-12.12,6.071-14.595,11.3-25.972,15.68-28.67"/>
+    <path id="Eyes" class="eye-color" d="M93.09,45.457a3.821,3.821,0,0,1,3.653,2.053,14.155,14.155,0,0,1,1.75,6.385,14.16,14.16,0,0,1-.74,6.579,3.766,3.766,0,0,1-6.943.541,14.164,14.164,0,0,1-1.75-6.385,14.16,14.16,0,0,1,.739-6.579A3.821,3.821,0,0,1,93.09,45.457Zm-22.431.912A4.174,4.174,0,0,1,74.645,48.6a15.277,15.277,0,0,1,1.907,6.927,15.28,15.28,0,0,1-.811,7.138,4.123,4.123,0,0,1-7.581.591,15.281,15.281,0,0,1-1.907-6.927,15.275,15.275,0,0,1,.811-7.138A4.174,4.174,0,0,1,70.658,46.37Z"/>
+  </g>
+
+</svg>

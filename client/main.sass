@@ -1,0 +1,785 @@
+$header-color: #5a7cff
+$navHeader-gradient: #ffd67e linear-gradient(to bottom, #ffd67e 0%,#fffcde 100%)
+$bodyText-color: #96bbf1
+$primary-color: rgb(255,207,105)
+$primaryGlow-color: rgb(255,233,174)
+$secondary-color: rgb(90,124,255)
+$secondaryGlow-color: rgb(150,187,241)
+$facebookGlow-color: rgb(92,122,180)
+$facebook-color: rgb(60,91,150)
+$shadow-color: rgba(20,23,40,.5)
+$shadowLight-color: rgba(20,23,40,.25)
+$placeholder-color: rgba(90,124,255,.25)
+$separator-color: rgba(89,123,255,.35)
+=unselectable
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+=highlightGradient
+  background: -webkit-linear-gradient(white, $primary-color)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+
+@font-face
+    font-family: "IdealSans"
+    src: url("/fonts/IdealSans-Light-Pro.otf")
+
+@font-face
+    font-family: "IdealSans"
+    src: url("/fonts/IdealSans-Bold-Pro.otf")
+    font-weight: bold
+
+@font-face
+    font-family: "IdealSans"
+    src: url("/fonts/IdealSans-LightItalic-Pro.otf")
+    font-style: italic
+
+@font-face
+    font-family: "Museo"
+    src: url("/fonts/Museo700-Regular.otf")
+
+html
+  font-size: 10px
+
+body
+  margin: 0
+  padding: 0
+  font-family: "IdealSans", "Verdana"
+  background-color: #1c1823
+  color: $bodyText-color
+  text-align: center
+
+// Fix for mobile non-scrolling background
+body:before
+  content: ""
+  display: block
+  position: fixed
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  z-index: -10
+  background: #1c1823 radial-gradient(ellipse at center, #344689 0%, #1c1823 175%) no-repeat center center
+  background-size: cover
+
+p
+  font-size: 2.5em
+
+a
+  color: $primary-color
+  text-decoration: none
+
+a:hover
+  color: $primaryGlow-color
+
+welcome
+  .logo
+    width: 18em
+    height: 18em
+    position: absolute
+    top: 13%
+    left: 50%
+    transform: translate(-50%, 0)
+    background: url('images/star.svg') no-repeat center
+    background-size: contain
+  .logotype
+    position: absolute
+    top: 35%
+    left: 0
+    width: 100%
+    font-size: 3.5em
+    color: $primary-color
+    .wishing, .vine
+      &:after
+        text-shadow: 0 0 .25em $primaryGlow-color
+        content: attr(data-text)
+        position: absolute
+        left: 0
+        top: 0
+        z-index: -1
+        opacity: .45
+    .wishing
+      font-family: "IdealSans"
+      +highlightGradient
+      position: relative
+      &:after
+        top: -.1em
+    .vine
+      font-family: "Museo"
+      +highlightGradient
+      position: relative
+  .welcomeText
+    display: block
+    position: absolute
+    top: 40%
+    left: 0
+    width: 100%
+    font-size: 2em
+  .logInWithFacebook
+    position: absolute
+    top: 55%
+    left: 50%
+    width: 80%
+    margin-left: -40%
+  .signUpWithEmail
+    position: absolute
+    top: 68%
+    left: 0
+    width: 100%
+    font-size: 2em
+  .alreadyHaveAccount
+    position: absolute
+    bottom: 4%
+    left: 0
+    width: 100%
+    font-size: 2em
+
+sign-up
+  form
+    position: absolute
+    top: 0%
+    left: 10%
+    height: 100%
+    width: 80%
+    box-sizing: border-box
+    padding-top: 40%
+    input[type="text"], input[type="password"], input[type="email"]
+      width: 100%
+      margin-left: 0
+      margin-right: 0
+    .signUp
+      position: absolute
+      top: 55%
+      left: 0%
+      width: 100%
+      margin-left: 0
+      margin-right: 0
+  .alreadyHaveAccount
+    position: absolute
+    bottom: 4%
+    left: 0
+    width: 100%
+    font-size: 2em
+  .agreeCopy
+    position: absolute
+    top: 64%
+    left: 0
+    width: 100%
+    font-size: 1.5em
+
+sign-in
+  form
+    position: absolute
+    top: 0%
+    left: 10%
+    height: 100%
+    width: 80%
+    box-sizing: border-box
+    padding-top: 70%
+    input[type="text"], input[type="password"], input[type="email"]
+      width: 100%
+      margin-left: 0
+      margin-right: 0
+    .signIn
+      position: absolute
+      top: 60%
+      left: 0%
+      width: 100%
+      margin-left: 0
+      margin-right: 0
+    .logInWithFacebook
+      position: absolute
+      top: 23%
+      left: 0%
+      width: 100%
+      margin-left: 0
+  .noAccount
+    position: absolute
+    bottom: 4%
+    left: 0
+    width: 100%
+    font-size: 2em
+  .divider
+    font-size: 2em
+    position: absolute
+    top: 34%
+    width: 100%
+    .left, .right
+      position: absolute
+      top: 45%
+      height: 10%
+      width: 40%
+      background-color: $bodyText-color
+    .left
+      left: 0
+    .right
+      right: 0
+
+header
+  width: 100%
+  background: radial-gradient(ellipse at top, rgba(52,70,137,1) 0%,rgba(41,48,90,.95) 125%)
+  -webkit-backdrop-filter: blur(1em)
+  box-shadow: 0 .5em 3.6em $shadow-color
+  position: fixed
+  top: 0
+  left: 0
+  padding-top: 1em
+  z-index: 10
+
+header button.leftButton
+  min-width: 5em
+  height: 6em
+  position: absolute
+  top: 0
+  left: 0
+  margin: 0
+  padding: 1.5em 1em 0 1em
+  background: none
+  border-radius: 0
+  box-shadow: none
+
+header button.rightButton
+  min-width: 5em
+  height: 100%
+  position: absolute
+  top: 0
+  right: 0
+  margin: 0
+  padding: 1.5em 1em 0 1em
+  background: none
+  border-radius: 0
+  box-shadow: none
+
+header button.rightButton .text
+  font-family: "IdealSans"
+  +highlightGradient
+
+header button .text i
+  font-size: .75em
+
+header button
+  margin-bottom: 1.5em
+
+header h1
+  font-family: "IdealSans"
+  font-variant: small-caps
+  font-weight: normal
+  font-size: 2.5em
+  +highlightGradient
+  margin: .6em 0 .35em 0
+
+main
+  padding-bottom: 6em
+  z-index: 5
+
+h2
+  font-size: 5rem
+  color: $header-color
+  text-transform: uppercase
+  text-align: center
+  margin: .5em 0
+  +unselectable
+
+h3
+  font-size: 2.5rem
+  color: $header-color
+  text-transform: uppercase
+  text-align: left
+  margin: 1.5em .5em 0 .5em
+  +unselectable
+
+button.disabled, button:disabled
+  opacity: .25
+
+button
+  height: 5em
+  margin: .25em .5em
+  padding: .5em 2.5em
+  font-family: "Museo"
+  background: radial-gradient(ellipse at top, rgba(255,252,222,1) 0%,rgba(255,214,126,0.9) 100%)
+  color: #282f57
+  border: none
+  border-radius: 2.5em
+  box-shadow: 0 0 1.25em rgba(255,214,126,.5), 0 .5em 1.8em $shadow-color
+  cursor: pointer
+  transition-duration: .1s
+  transition-timing-function: ease-out
+  -webkit-tap-highlight-color: rgba(0,0,0,0)
+  outline: none
+  +unselectable
+
+button:hover
+  box-shadow: 0 0 1.25em rgba(255,214,126,1), 0 .5em 1.8em $shadow-color
+  transform: translate(0, -.15em)
+  transform: scale(1.025)
+
+button:active
+  transition-duration: .05s
+  transform: scale(0.95)
+  opacity: .5
+
+button:active:disabled
+  box-shadow: none
+  opacity: .2
+  transform: scale(1) translate(0, 0)
+
+button .text
+  font-size: 2.4em
+
+button.secondary
+  background: radial-gradient(ellipse at top, rgba(150,187,241,1) 0%,rgba(90,124,255,0.95) 100%)
+  box-shadow: 0 0 1.25em rgba(0,0,0,0), 0 .5em 1.8em $shadowLight-color
+
+button.secondary:hover, button.secondary:active
+  box-shadow: 0 0 1.25em rgba(150,187,241,.5), 0 .5em 1.8em $shadowLight-color
+
+button.facebook
+  background: radial-gradient(ellipse at top, $facebookGlow-color 0%,rgba(60,91,150,0.8) 100%)
+  color: white
+  box-shadow: 0 0 1.25em rgba(92,122,180,.5), 0 .5em 1.8em $shadow-color
+
+ul
+  list-style: none
+  padding: 0
+  margin: 0 0 1em 0
+  text-align: left
+  +unselectable
+
+ul li
+  margin-left: 1em
+  padding: .5em 0
+  cursor: pointer
+  -webkit-tap-highlight-color: rgba(0,0,0,0)
+  +unselectable
+  // min-height: 5rem
+
+ul li:active
+  background-color: rgba(150,187,241,.1)
+  // box-shadow: 0 .5em 1.8em $shadowLight-color
+
+ul.settings li
+  padding: 1em 0
+
+ul li .text
+  font-size: 3em
+  color: $primary-color
+  +unselectable
+  -webkit-tap-highlight-color: rgba(0,0,0,0)
+  transition-duration: .2s
+
+ul.settings li .text
+  font-size: 2.5em
+
+ul li:not(:first-child)
+  -webkit-box-shadow: 0 1px 0 0 $separator-color inset
+
+ul li:not(:first-child) .separator
+  width: 100%
+  height: 1px
+  position: absolute
+  top: 0
+  left: 0
+  -webkit-box-shadow: 2px 0 0 0 black inset
+
+wish-list
+  ul
+    width: 100%
+    overflow: hidden
+  ul li
+    +unselectable
+    position: relative
+    button.received
+      position: absolute
+      right: .5em
+      top: 10%
+      height: 90%
+      width: 11.5%
+      border-radius: 0
+      background: rgba(0, 0, 0, 0)
+      box-shadow: none
+      padding: 0 0 0 0
+      margin: 0 0 0 0
+      box-sizing: border-box
+      transition-duration: .15s
+      &:active
+        transform: scale(1.25) rotate(-10deg) translate(-1em, -0.25em)
+        opacity: 1
+        img
+          opacity: .5
+        img.off
+          opacity: 1
+      img
+        //This hack below fixes Safari's SVG pixelation problem
+        position: absolute
+        top: -50%
+        left: -50%
+        height: 200%
+        width: auto
+        -webkit-transform: scale(0.5)
+        &.off
+          opacity: .1
+      :not(:first-child) .delete
+        -webkit-box-shadow: 0 1px 0 0 $separator-color inset
+    .delete
+      height: 100%
+      width: 17.33%
+      color: white
+      background-color: rgba(255,0,0,.5)
+      text-align: center
+      position: absolute
+      left: 100%
+      top: 0%
+      .text
+        font-size: 1.5em
+        position: relative
+        top: 1em
+        color: white
+  .noWishes
+    padding-top: 2em
+    img
+      width: 8em
+      height: auto
+    h3
+      text-align: center
+      margin-top: 0em
+    p
+      font-size: 2.25em
+      margin-top: .5em
+
+input[type="text"], input[type="email"], input[type="password"]
+  font-size: 2.5rem
+  font-family: "IdealSans"
+  // font-weight: bold
+  color: $secondary-color
+  height: 2em
+  padding: .1em 0 0 0
+  margin: .25em
+  border: none
+  border-radius: .25em
+  box-shadow: inset 0 .7em 1.4em rgba(0,0,0,.25)
+  text-align: center
+  -webkit-appearance: none
+
+::-webkit-input-placeholder
+  color: $placeholder-color
+  font-weight: normal
+
+::-moz-placeholder
+  color: $placeholder-color
+
+:-ms-input-placeholder
+  color: $placeholder-color
+
+:-moz-placeholder
+  color: $placeholder-color
+
+.highlightGradient
+  +highlightGradient
+
+.settingsButton
+  position: fixed
+  bottom: 0
+  right: 0
+  background-color: #2c3869
+  font-size: 2em
+  padding: .75em 1em .5em 1em
+  border-top-left-radius: .5em
+  cursor: pointer
+  box-shadow: 0 .5em 1.8em $shadow-color
+  -webkit-tap-highlight-color: rgba(0,0,0,0)
+  transition-duration: .2s
+  +unselectable
+
+.settingsButton:active
+  transform: scale(1.2)
+
+.loader
+  font-size: 1.5rem
+  box-sizing: border-box
+  padding: 1em
+  text-align: center
+  .dot
+    display: inline-block
+    box-sizing: border-box
+    width: 1em
+    height: 1em
+    border: .15em solid $secondary-color
+    border-radius: 50%
+    margin: 0 .2em
+    transform: scale(0)
+    animation: fx 1200ms ease infinite 0ms
+    &:nth-child(2)
+      animation: fx 1200ms ease infinite 300ms
+    &:nth-child(3)
+      animation: fx 1200ms ease infinite 600ms
+
+@keyframes fx
+  50%
+    transform: scale(1)
+    opacity: 1
+  100%
+    opacity: 0
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px)
+  html, button
+    font-size: 8.53px
+  body
+    // padding-top: 1em
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px)
+  html, button
+    font-size: 10px
+  body
+    // padding-top: 3em
+
+@media only screen and (min-device-width: 414px) and (max-device-width : 736px)
+  html
+    font-size: 11px
+  body
+    // padding-top: 3em
+
+.without-account
+  margin-top: 5em
+
+.ppConsistencies
+    display:none
+
+fbPrompt
+  display: block
+  position: relative
+  font-size: 1rem
+  margin: 0 1em 4em 1em
+  padding: .25em 0 4em 0
+  background-color: rgba(90,124,255,.1)
+  border-radius: 1em
+  .text
+    font-size: 1.75em
+  h2
+    font-size: 2.5em
+    margin-bottom: .25em
+  button.facebook
+    position: absolute
+    bottom: -2em
+    width: 80%
+    left: 10%
+
+privacy-policy
+  main
+    text-align: left
+    padding: 0 2em 2em 2em
+  .ppConsistencies
+    display: none
+  .innerText
+    font-size: 1.25em
+  .grayText
+    font-size: 2em
+    color: $header-color
+
+terms
+  main
+    padding: 0 2em 2em 2em
+    text-align: left
+    p
+      font-size: 1.25em
+    h2
+      font-size: 2em
+      text-align: left
+
+wish-list
+  padding-top: 110px
+  ul
+    overflow: hidden
+
+.friends-wish-list-container
+  padding-top: 70px
+
+  ul
+    overflow: hidden
+
+  .profile-info
+    text-align: center
+
+    .image
+      display: inline-block
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: cover
+      height: 40px
+      width: 40px
+
+    .birthday
+      display: inline-block
+
+network-watcher
+  div
+    position: fixed
+    bottom: 0
+    left: 0
+    width: 100%
+    line-height: 46px
+    font-size: 18px
+    background-color: white
+    text-align: center
+    z-index: 1000
+
+.received-star
+  opacity: 0.1
+
+add-wish, edit-wish
+  .received-star
+    width: 11.5%
+
+#Mongol
+  text-align: left
+
+wishes-dashboard
+  ul
+    li
+      position: relative
+      padding-top: 0
+      padding-bottom: 0
+
+      img
+        width: 40px
+        height: 40px
+        position: absolute
+        top: 0
+        left: 0
+        display: block
+
+      p
+        padding-left: 56px
+        margin: 0
+        line-height: 40px
+
+      span
+        position: absolute
+        top: 0
+        right: 30px
+        font-size: 16px
+        line-height: 40px
+
+      i
+        position: absolute
+        top: 0
+        right: 10px
+        font-size: 16px
+        line-height: 40px
+
+.footer
+  position: fixed
+  bottom: 0
+  left: 0
+  width: 100%
+  height: 10%
+  z-index: 20
+  button
+    border-radius: 0
+    background: none
+    box-shadow: none
+    padding: 0
+    margin: 0
+  .tab
+    position: absolute
+    bottom: 10%
+    width: 41%
+    z-index: 15
+    &.selected
+      bottom: 26%
+      z-index: 16
+    &:active
+      bottom: 26%
+      z-index: 17
+      opacity: 1
+      transform: scale(1.05)
+    .text
+      position: absolute
+      top: 42%
+      left: 0
+      width: 100%
+      text-align: center
+      font-size: 1.75em
+      font-family: "Museo"
+    img
+      width: 100%
+  .settings
+    position: absolute
+    bottom: 0
+    right: 0
+    width: 15%
+    height: 75%
+    z-index: 21
+    i
+      font-size: 2em
+      color: #4861c4
+  .wishList
+    left: 0%
+    .text
+      color: #232848
+  .niceList
+    left: 31%
+    .text
+      color: #beffec
+  .base
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 100%
+    z-index: 20
+    pointer-events: none
+  .shadow
+    height: 100%
+    width: 100%
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,.1) 40%,rgba(0,0,0,.1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+.modal
+  font-size: 1rem
+  z-index: 100
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: transparent radial-gradient(ellipse at center, rgba(52,70,137,.9) 0%, rgba(28,24,35,.9) 175%) no-repeat center center
+  vertical-align: middle
+  text-align: center
+  &::before
+    content: ''
+    display: inline-block
+    height: 100%
+    vertical-align: middle
+    margin-right: -0.25em
+    // hack to vertically center
+    // https://css-tricks.com/centering-in-the-unknown/
+  .frame
+    display: inline-block
+    vertical-align: middle
+    position: relative
+    width: 90%
+    color: #283058
+    padding: 1.5em 1em 1em 1em
+    border-radius: 1em
+    box-sizing: border-box
+    box-shadow: 0 .5em 3.6em $shadow-color
+    background: transparent radial-gradient(ellipse at center, rgba(214,218,237,1) 0%, rgba(181,196,255,.7) 175%) no-repeat center center
+    p
+      font-size: 2em
+      padding: 0 1em
+    img
+      border-radius: 1em
+      box-shadow: 0 .5em 3.6em $shadow-color
+    button
+      width: 45%
+    button.infoButton
+      padding: 1em
+      margin: 0
+      box-shadow: none
+      background: none
+      border-radius: 0
+      position: absolute
+      top: 0em
+      right: 0em
+      height: 4.25em
+      width: 4.25em
+      i
+        font-size: 2.5em

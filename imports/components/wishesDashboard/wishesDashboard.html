@@ -1,0 +1,30 @@
+<h2>Wishing VINE</h2>
+
+<ul>
+  <li ui-sref="wish-list">
+    <img ng-src="{{wishesDashboard.currentUser.profile.picture || './images/no-profile.jpg'}}" />
+    <p>My Wish List</p>
+    <span>{{wishesDashboard.wishesCount}}</span>
+    <i>&gt;</i>
+  </li>
+</ul>
+
+<p ng-if="!wishesDashboard.currentUser.profile.fbId" ng-click="wishesDashboard.connectToFacebook()">
+  Connect to Facebook
+</p>
+
+<p ng-if="wishesDashboard.currentUser.profile.fbId">
+  All friends
+</p>
+<ul ng-if="wishesDashboard.currentUser.profile.fbId">
+  <li ng-repeat="friend in wishesDashboard.currentUser.profile.fbFriends" ng-if="friend.id" ui-sref="friends-wish-list({ userId: friend.id })">
+    <img ng-src="{{wishesDashboard.getFriendProfile(friend.id).picture || './images/no-profile.jpg'}}" />
+    <p>{{friend.name}}</p>
+    <span>{{wishesDashboard.getFriendsWishes(friend.id)}}</span>
+    <i>&gt;</i>
+  </li>
+</ul>
+
+<div ui-sref="settings" class="settingsButton">
+  <i class="icon-options"></i>
+</div>

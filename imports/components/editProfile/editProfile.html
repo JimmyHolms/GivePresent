@@ -1,0 +1,33 @@
+<header id="header">
+  <button class="leftButton" ui-sref="settings">
+    <span class="text">
+      <i class="icon-back highlightGradient"></i>
+    </span>
+  </button>
+  <h1>
+    Edit Profile
+  </h1>
+</header>
+
+<main id="main">
+  <form name="editProfile.form.editProfile">
+    <div class="input-group">
+      <input type="text" placeholder="Your name" ng-model="editProfile.userData.name" required />
+    </div>
+
+    <div class="input-group">
+      <input type="email" placeholder="Your email" ng-model="editProfile.userData.email" required />
+    </div>
+
+    <div>
+      <button ng-click="editProfile.save()" ng-disabled="editProfile.form.editProfile.$invalid" ng-class="{ 'disabled': editProfile.form.editProfile.$invalid }">
+        <span class="text">Save</span>
+      </button>
+    </div>
+  </form>
+</main>
+
+<script charset="utf-8">
+  var height = document.getElementById("header").offsetHeight;
+  document.getElementById("main").style.marginTop = height + 20 + 'px';
+</script>

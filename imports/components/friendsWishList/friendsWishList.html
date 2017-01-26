@@ -1,0 +1,28 @@
+<div class="friends-wish-list-container">
+  <header>
+    <h1>
+      {{friendsWishList.friend.profile.name}}
+    </h1>
+    <a ui-sref="wishes-dashboard">back</a>
+  </header>
+
+  <div class="profile-info">
+    <div class="birthday">
+      Birthday<br />
+      {{friendsWishList.friend.profile.birthday}}
+    </div>
+    <div class="image" style="background-image: url('{{friendsWishList.friend.profile.picture || './images/no-profile.jpg'}}')"></div>
+  </div>
+
+  <main>
+    <ul>
+      <li ng-repeat="wish in friendsWishList.wishes track by $index">
+        <span class="text">{{wish.name}}</span>
+      </li>
+    </ul>
+    
+    <div ui-sref="settings" class="settingsButton">
+      <i class="icon-options"></i>
+    </div>
+  </main>
+</div>

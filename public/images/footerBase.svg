@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="750" height="140" viewBox="0 0 750 140">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="-50%" style="stop-color:rgba(44,55,104,1);stop-opacity:1" />
+      <stop offset="50%" style="stop-color:rgba(52,70,137,1);stop-opacity:1" />
+      <stop offset="150%" style="stop-color:rgba(44,55,104,1);stop-opacity:1" />
+    </linearGradient>
+    <filter id="baseShadow" x="-35" y="11" width="821" height="171" filterUnits="userSpaceOnUse">
+      <feOffset result="offset" in="SourceAlpha"/>
+      <feGaussianBlur result="blur" stdDeviation="12"/>
+      <feFlood result="flood" flood-opacity="0.20"/>
+      <feComposite result="composite" operator="in" in2="blur"/>
+      <feBlend result="blend" in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <path id="footerBase.svg" fill="url(#grad1)" filter="url(#baseShadow)" d="M0,146V46H11.981c6.464,0,13.62,5.344,16,11.946L39.64,106c4.02,11.046,16.234,20,27.279,20H463.081c11.045,0,23.259-8.954,27.279-20l11.661-48.054c2.379-6.6,9.534-11.945,16-11.945H750V146H0Z" transform="translate(0 -6)"/>
+</svg>

@@ -1,0 +1,37 @@
+<header id="header">
+  <button class="leftButton" ui-sref="wish-list">
+    <span class="text">
+      <i class="icon-back highlightGradient"></i>
+    </span>
+  </button>
+  <h1>
+    Edit Wish
+  </h1>
+</header>
+
+<main id="main">
+  <p>
+    <input type="text" ng-model="editWish.wish.name" />
+  </p>
+
+  <p ng-show="!editWish.showPersonField">
+    <img class="received-star off" src="images/star.svg" ng-click="editWish.addPerson()" />
+    <span>tap me if you already received this!</span>
+  </p>
+
+  <p ng-show="editWish.showPersonField">
+    <img class="received-star" src="images/star.svg" />
+    <input type="text" ng-model="editWish.giftGiver" />
+  </p>
+
+  <p>
+    <button ng-click="editWish.editWish()" ng-disabled="!editWish.wish.name" ng-class="{ 'disabled': !editWish.wish.name }">
+      <span class="text">Done!</span>
+    </button>
+  </p>
+</main>
+
+<script charset="utf-8">
+  var height = document.getElementById("header").offsetHeight;
+  document.getElementById("main").style.marginTop = height + 20 + 'px';
+</script>

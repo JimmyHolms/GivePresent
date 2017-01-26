@@ -1,0 +1,33 @@
+<div layout="column">
+  <div ngf-drop
+    ngf-select
+    ngf-change="partyUpload.addImages($files)"
+    ngf-drag-over-class="{accept:'dragover', reject:'dragover-err', delay:100}"
+    class="drop-box"
+    ngf-multiple="false"
+    ngf-allow-dir="false"
+    ngf-accept="'image/*'"
+    ngf-drop-available="true"
+    ng-hide="partyUpload.cropImgSrc">
+      <div>Click here to select image</div>
+  </div>
+  <div ng-show="partyUpload.cropImgSrc" layout="column" class="ng-crop">
+    <div>
+      <button ng-click="partyUpload.save()">
+        <span class="text">Save Image</span>
+      </button>
+      <button ng-click="partyUpload.reset()">
+        <span class="text">Cancel</span>
+      </button>
+    </div>
+    <div ng-if="partyUpload.imageSrc">
+      <img class="upload-preview" ng-src="{{partyUpload.imageSrc}}" />
+    </div>
+    <div class="ng-crop-container">
+      <img-crop image="partyUpload.cropImgSrc" result-image="partyUpload.myCroppedImage" area-type="square"></img-crop>
+    </div>
+  </div>
+  <!--<div ng-if="partyUpload.uploadedImage">
+    <img ng-src="{{ partyUpload.uploadedImage.url }}" />
+  </div>-->
+</div>

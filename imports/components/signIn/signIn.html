@@ -1,0 +1,31 @@
+<form name="signIn.form.signIn" novalidate="novalidate">
+
+  <button ng-click="signIn.signInWithFacebook()" class="facebook logInWithFacebook">
+    <span class="text">Facebook Login</span>
+  </button>
+
+  <div class="divider">
+    <div class="left"></div>
+    <div class="text">OR</div>
+    <div class="right"></div>
+  </div>
+
+  <div class="input-group">
+    <input id="email" name="email" type="email" placeholder="Your email" ng-model="signIn.credentials.email" required />
+  </div>
+
+  <div class="input-group">
+    <input id="password" name="password" type="password" placeholder="Wishing Vine Password" ng-model="signIn.credentials.password" required />
+  </div>
+
+  <button class="signIn" ng-click="signIn.signIn()" ng-disabled="signIn.form.signIn.$invalid" ng-class="{ 'disabled': signIn.form.signIn.$invalid }">
+    <span class="text">Login</span>
+  </button>
+
+</form>
+
+<a class="noAccount" ui-sref="welcome">
+  No account? Sign up <i class="icon-forward highlightGradient"></i>
+</a>
+
+<p ng-if="signIn.error">Sign In Error: {{signIn.error.message}}</p>
